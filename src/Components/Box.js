@@ -5,14 +5,11 @@ import { db } from '../firebase-config'
 import { useParams, Link } from "react-router-dom";
 
 export default function Box(props) {
-    
-    const article = {
-        title: props.title,
-        author: props.author,
-        img: props.img
-    }
+    //Getting the collection with the articles from firebase
     const articlesCollection = collection(db, 'articles')
+    //Creating a state that will store the data collected
     const [data, setData] = useState({})
+    //Using the use effect hook to get the data from firebase
     useEffect(() => {
         const getArticle = async () => {
             const data = await getDocs(articlesCollection)
@@ -20,15 +17,18 @@ export default function Box(props) {
         };
         getArticle()
     }, [])
+    //seting a path for the article
     let { path } = useParams()
     path = '/articles/' + data.pathname
+
+    //Returning the data driven box
     return (
         <div className={props.class}>
             <img src={props.img}/>
             <div className="box-text">
                 <Link to={path} state={data}><h1 className="article-title">{data.title}</h1></Link>
                 {props.previewed && <p className="article-preview">{data.preview}</p>}
-                <p className="article-author">By {data.author}</p>
+                <p className="article-author">{data.author}</p>
             </div>
         </div>
     )

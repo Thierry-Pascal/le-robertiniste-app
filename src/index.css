@@ -427,6 +427,7 @@ img {
 
 .article .image-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   margin-bottom: 40px;
   margin-top: 20px;
@@ -434,7 +435,28 @@ img {
 
 .article img {
   width: 60%;
+  align-self: center;
   /*max-width: 600px;*/
+}
+
+.article .image-container span {
+  margin-top: 20px;
+  margin-left: 25%;
+  margin-right: 0px;
+  font-size: 18px;
+  color: #FCBA03;
+}
+
+.article .image-container .credits {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.article .image-container .credits .credits-text {
+  font-size: 14px;
+  margin-left: 10px;
+  color: #000;
 }
 
 .article .title {
