@@ -1,10 +1,27 @@
-import React from "react"
-import { useLocation } from "react-router-dom"
+import React, { useEffect,useState } from "react"
+import { useLocation, useParams } from "react-router-dom"
+import { getDocs, collection } from 'firebase/firestore'
+import { db } from '../firebase-config'
 import Separation from "./Separation"
 
 export default function Article(props) {
     let location = useLocation()
     let data = location.state
+    let pathname = useParams()
+    const articlesCollection = collection(db, 'articles')
+    let dataKeeper = {}
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        const getArticle = async () => {
+            const data = await getDocs(articlesCollection)
+            data.docs.map((doc) => {
+                if(doc.data().pathname == pathname.pathname) {
+                    dataKeeper = doc.data()
+                }
+            })
+        };
+        getArticle()
+    }, [location])
 
     return (
         <div className="article">
