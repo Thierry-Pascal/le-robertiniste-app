@@ -3,6 +3,7 @@ import { useLocation, useParams } from "react-router-dom"
 import { getDocs, collection } from 'firebase/firestore'
 import { db } from '../firebase-config'
 import Separation from "./Separation"
+import Links from "./Links"
 
 export default function Article(props) {
     //Receiving the location and pathname from react router dom hooks
@@ -29,6 +30,7 @@ export default function Article(props) {
         };
         getArticle()
     }, [location])
+
     return (
         <div className="article">
             <div className="text-title">
@@ -38,19 +40,19 @@ export default function Article(props) {
                 <p className="author">{dataKeeper.author} </p> 
                 <p className="date"> / {dataKeeper.date}</p>
             </div>  
-            <Separation /> 
+            <Links />
             <div className="image-container">
                 <img src={dataKeeper.img}/>
                 <div className="credits">
                     <span class="material-symbols-outlined credits-icon">photo_camera</span>
                     <span className="credits-text"><strong>Image Credits:</strong> {dataKeeper.credits}</span>
                 </div>
-                
             </div>
             <div className="text" dangerouslySetInnerHTML={{__html: dataKeeper.text}}></div>
             <Separation />
+            <Links />
             <div className="author-box">
-                <p>{dataKeeper.authorDescription}</p>
+                <p><span>The Author</span><br/>{dataKeeper.authorDescription}</p>
             </div>
         </div>
     )
