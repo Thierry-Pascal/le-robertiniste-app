@@ -4,6 +4,7 @@ import { getDocs, collection } from 'firebase/firestore'
 import { db } from '../firebase-config'
 import Separation from "./Separation"
 import Links from "./Links"
+import More from "./More"
 
 export default function Article(props) {
     //Receiving the location and pathname from react router dom hooks
@@ -54,6 +55,7 @@ export default function Article(props) {
             <div className="author-box">
                 <p><span>The Author</span><br/>{dataKeeper.authorDescription}</p>
             </div>
+            <More />
         </div>
     )
 }

@@ -1,10 +1,10 @@
-import React from 'react';
-import Box from './Box';
+import React from "react";
+import Box from "./Box";
 import { useEffect, useState } from "react";
 import { getDocs, collection } from 'firebase/firestore'
 import { db } from '../firebase-config'
 
-export default function Fiction() {
+export default function More() {
     const [test, setTest] = useState('')
 
     //Getting the collection with the articles from firebase
@@ -19,13 +19,13 @@ export default function Fiction() {
             for (let i = 0; i < data.docs.length; i++) {
                 console.log(i)
                 if (i == 0) {
-                    setDt((arr) => [...arr, <Box {...data.docs[i].data()} class='culture-article first' key={data.docs[i].data().pathname} previewed={true}/>])
+                    setDt((arr) => [...arr, <Box {...data.docs[i].data()} class='more-article first' key={data.docs[i].data().pathname} previewed={true}/>])
                 } else if (i == 1) {
-                    setDt((arr) => [...arr, <Box {...data.docs[i].data()} class='culture-article second' key={data.docs[i].data().pathname} previewed={true}/>])
+                    setDt((arr) => [...arr, <Box {...data.docs[i].data()} class='more-article second' key={data.docs[i].data().pathname} previewed={true}/>])
                 } else if (i == 2) {
-                    setDt((arr) => [...arr, <Box {...data.docs[i].data()} class='culture-article third' key={data.docs[i].data().pathname} previewed={true}/>])
+                    setDt((arr) => [...arr, <Box {...data.docs[i].data()} class='more-article third' key={data.docs[i].data().pathname} previewed={true}/>])
                 } else {
-                    setDt((arr) => [...arr, <Box {...data.docs[i].data()} class='culture-article fourth' key={data.docs[i].data().pathname} previewed={true}/>])
+                    setDt((arr) => [...arr, <Box {...data.docs[i].data()} class='more-article fourth' key={data.docs[i].data().pathname} previewed={true}/>])
                 }
             }
         };
@@ -35,14 +35,14 @@ export default function Fiction() {
 
     return (
         <div className='flex'>
-            <div className='section-title'>
-                <h1>Fictions Et Poèmes</h1>
+            <div className='more-title'>
+                <h1>LIRE PLUS</h1>
             </div>
-            <div className='fiction'>
+            <div className='more'>
                 {dt[0]}
-                {dt[3]}
-                {dt[2]}
                 {dt[1]}
+                {dt[2]}
+                {dt[3]}
             </div>
         </div>
     )

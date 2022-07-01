@@ -1,13 +1,39 @@
 import React from 'react';
 import Box from './Box';
-import sleep from '../images/sleep.png'
 import Separation from './Separation';
+import { useEffect, useState } from "react";
+import { getDocs, collection } from 'firebase/firestore'
+import { db } from '../firebase-config'
 
 export default function Recent(props) {
-    let preview = 'Sleep is the interest we have to pay on the capital which is called in at death; and the higher the rate of interest and the more regularly it is paid, the further the date of redemption is postponed'
-    let title = 'Sleep Deprivation Among College Students'
-    let path = 'sleep-deprivation-among-college-students'
-    let author = 'Roberson Jean'
+
+    const [test, setTest] = useState('')
+
+    //Getting the collection with the articles from firebase
+    const articlesCollection = collection(db, 'articles')
+    //Creating a state that will store the data collected
+    const [dt, setDt] = useState([])
+    //Getting the data and creating the boxes
+    const boxes = []
+    useEffect(() => {
+        const getArticle = async () => {
+            const data = await getDocs(articlesCollection)
+            for (let i = 0; i < data.docs.length; i++) {
+                console.log(i)
+                if (i == 0) {
+                    setDt((arr) => [...arr, <Box {...data.docs[i].data()} class='principal' key={data.docs[i].data().pathname} previewed={true}/>])
+                } else if (i == 1) {
+                    setDt((arr) => [...arr, <Box {...data.docs[i].data()} class='principal flex-box' key={data.docs[i].data().pathname} previewed={true}/>])
+                } else if (i == 2 || i ==3) {
+                    setDt((arr) => [...arr, <Box {...data.docs[i].data()} class='secondary-left' key={data.docs[i].data().pathname} previewed={true}/>])
+                } else {
+                    setDt((arr) => [...arr, <Box {...data.docs[i].data()} class='principal flex-box' key={data.docs[i].data().pathname} previewed={false}/>])
+                }
+            }
+        };
+        getArticle()
+
+    }, [test])
     return (
         <div className='flex'>
             <div className='section-title'>
@@ -15,98 +41,22 @@ export default function Recent(props) {
             </div>
             <div className='articles'>
                 <div>
-                <Box 
-                    class='secondary-left'
-                    img={sleep}
-                    author={author}
-                    title={title}
-                    preview={preview}
-                    path={path}
-                    previewed={true}
-                />
+                {dt[2]}
                 <Separation />
-                <Box 
-                    class='secondary-left'
-                    img={sleep}
-                    author={author}
-                    title={title}
-                    preview={preview}
-                    path={path}
-                    previewed={true}
-                />
+                {dt[3]}
                 </div>
                 <div className='main-recent'>
-                    <Box 
-                        class='principal'
-                        img={sleep}
-                        author={author}
-                        title={title}
-                        preview={preview}
-                        path={path}
-                        previewed={true}
-                    />
+                    {dt[0]}
                     <Separation />
-                    <Box 
-                        class='principal flex-box'
-                        img={sleep}
-                        author={author}
-                        title={title}
-                        preview={preview}
-                        path={path}
-                        previewed={true}
-                    />
+                    {dt[1]}
                 </div>
                 
                 <div className='secondary-right'>
-                    <Box 
-                        class='principal flex-box'
-                        img={'https://rapid-meta.com/wp-content/uploads/2022/06/innu-dogge.webp'}
-                        author={author}
-                        title={'What are NFTs?'}
-                        preview=''
-                        path={'que-sont-les-nfts'}
-                        previewed={false}
-                    />
+                    {dt[4]}
                     <Separation />
-                    <Box 
-                        class='principal flex-box'
-                        img={sleep}
-                        author={author}
-                        title={title}
-                        preview=''
-                        path={path}
-                        previewed={false}
-                    />
+                    {dt[4]}
                     <Separation />
-                    <Box 
-                        class='principal flex-box'
-                        img={sleep}
-                        author={author}
-                        title={title}
-                        preview=''
-                        path={path}
-                        previewed={false}
-                    />
-                    <Separation />
-                    <Box 
-                        class='principal flex-box'
-                        img={sleep}
-                        author={author}
-                        title={title}
-                        preview=''
-                        path={path}
-                        previewed={false}
-                    />
-                    <Separation />
-                    <Box 
-                        class='principal flex-box'
-                        img={sleep}
-                        author={author}
-                        title={title}
-                        preview=''
-                        path={path}
-                        previewed={false}
-                    />
+                    {dt[4]}
                 </div>
             </div>
         </div>

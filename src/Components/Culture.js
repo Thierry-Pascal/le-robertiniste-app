@@ -1,54 +1,47 @@
 import React from 'react';
 import Box from './Box';
-import sleep from '../images/sleep.png'
+import { useEffect, useState } from "react";
+import { getDocs, collection } from 'firebase/firestore'
+import { db } from '../firebase-config'
 
 export default function Culture() {
-    let preview = 'Sleep is the interest we have to pay on the capital which is called in at death; and the higher the rate of interest and the more regularly it is paid, the further the date of redemption is postponed'
-    let title = 'Sleep Deprivation Among College Students'
-    let author = 'Roberson Jean'
-    let path = 'sleep-deprivation-among-college-students'
+    const [test, setTest] = useState('')
+
+    //Getting the collection with the articles from firebase
+    const articlesCollection = collection(db, 'articles')
+    //Creating a state that will store the data collected
+    const [dt, setDt] = useState([])
+    //Getting the data and creating the boxes
+    const boxes = []
+    useEffect(() => {
+        const getArticle = async () => {
+            const data = await getDocs(articlesCollection)
+            for (let i = 0; i < data.docs.length; i++) {
+                console.log(i)
+                if (i == 0) {
+                    setDt((arr) => [...arr, <Box {...data.docs[i].data()} class='culture-article first' key={data.docs[i].data().pathname} previewed={true}/>])
+                } else if (i == 1) {
+                    setDt((arr) => [...arr, <Box {...data.docs[i].data()} class='culture-article second' key={data.docs[i].data().pathname} previewed={true}/>])
+                } else if (i == 2) {
+                    setDt((arr) => [...arr, <Box {...data.docs[i].data()} class='culture-article third' key={data.docs[i].data().pathname} previewed={true}/>])
+                } else {
+                    setDt((arr) => [...arr, <Box {...data.docs[i].data()} class='culture-article fourth' key={data.docs[i].data().pathname} previewed={true}/>])
+                }
+            }
+        };
+        getArticle()
+
+    }, [test])
     return (
         <div className='flex'>
             <div className='section-title'>
                 <h1>Culture</h1>
             </div>
             <div className='culture'>
-                <Box  
-                    class='culture-article first'
-                    img={sleep}
-                    author={author}
-                    title={title}
-                    preview={preview}
-                    path={path}
-                    previewed={true}
-                />
-                <Box 
-                    class='culture-article second'
-                    img={sleep}
-                    author={author}
-                    title={title}
-                    preview={preview}
-                    path={path}
-                    previewed={true}
-                />
-                <Box 
-                    class='culture-article third'
-                    img={sleep}
-                    author={author}
-                    title={title}
-                    preview={preview}
-                    path={path}
-                    previewed={true}
-                />
-                <Box 
-                    class='culture-article fourth'
-                    img={sleep}
-                    author={author}
-                    title={title}
-                    preview={preview}
-                    path={path}
-                    previewed={true}
-                />
+                {dt[0]}
+                {dt[1]}
+                {dt[2]}
+                {dt[3]}
             </div>
         </div>
     )

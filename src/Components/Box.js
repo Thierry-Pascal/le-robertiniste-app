@@ -19,16 +19,16 @@ export default function Box(props) {
     }, [])
     //seting a path for the article
     let { path } = useParams()
-    path = '/articles/' + data.pathname
+    path = '/articles/' + props.pathname
 
     //Returning the data driven box
     return (
         <div className={props.class}>
             <img src={props.img}/>
             <div className="box-text">
-                <Link to={path} state={data}><h1 className="article-title">{data.title}</h1></Link>
-                {props.previewed && <p className="article-preview">{data.preview}</p>}
-                <p className="article-author">{data.author}</p>
+                <Link to={path} state={props}><h1 className="article-title">{props.title}</h1></Link>
+                {props.previewed && <p className="article-preview">{props.preview}</p>}
+                <p className="article-author">{props.author}</p>
             </div>
         </div>
     )

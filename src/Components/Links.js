@@ -31,9 +31,10 @@ export default function Links() {
     }
     return (
         <div className="share-icons">
-            <a><img src={link} className='link-icon'/></a>
-            <a><img src={facebookLogo} onMouseEnter={() => {handleHover(facebookLogo)}} onMouseLeave={() => {handleLeave(facebookLogo)}} className='facebook-link'/></a>
-            <a><img src={twitterLogo} onMouseEnter={() => {handleHover(twitterLogo)}} onMouseLeave={() => {handleLeave(twitterLogo)}} className='twitter-link'/></a>
+            <a><img src={link} className='link-icon' onClick={navigator.clipboard
+            .writeText(window.location.href)}/></a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fparse.com" target="_blank" rel="noopener"><img src={facebookLogo} onMouseEnter={() => {handleHover(facebookLogo)}} onMouseLeave={() => {handleLeave(facebookLogo)}} className='facebook-link'/></a>
+            <a href="https://twitter.com/intent/tweet" target="_blank" rel="noopener"><img src={twitterLogo} onMouseEnter={() => {handleHover(twitterLogo)}} onMouseLeave={() => {handleLeave(twitterLogo)}} className='twitter-link'/></a>
         </div> 
     )
 }
