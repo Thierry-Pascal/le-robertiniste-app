@@ -36,7 +36,7 @@ export default function Recent(props) {
     }, [test])
     return (
         <div className='flex'>
-            <div className='section-title'>
+            <div className='section-title first-section'>
                 <h1>À La Une</h1>
             </div>
             <div className='articles'>

@@ -14,7 +14,7 @@ export default function Footer() {
             </div>
             <Separation />
             <div className="footer-links">
-                <ul>
+                <ul className="active">
                     <a href='#'><li>Actualités</li></a>
                     <a href='#'><li>Culture</li></a>
                     <a href='#'><li>Sport</li></a>

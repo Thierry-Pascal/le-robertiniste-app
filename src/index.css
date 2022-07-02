@@ -66,6 +66,7 @@ img {
   height: 45px;
   margin-left: 5%;
   margin-right: 20px;
+  display: none;
 }
 
 .robertiniste {
@@ -650,4 +651,386 @@ img {
   margin-top: -5px;
   font-size: 0.7em;
   margin-bottom: 50px;
+}
+
+/* Mobile Responsive Design */
+
+@media only screen and (max-width: 800px) {
+
+  .active {
+    display: none;
+  }
+
+  .footer-links .active {
+    display: none;
+  }
+
+  .active-search {
+    display: none;
+  }
+
+  .nav-logo {
+    display: flex;
+    justify-content:space-between;
+    padding: 0px 30px;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #F5F5F5;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    margin-top: 0px;
+    background-color: #FFF;
+  }
+  
+  .logoC {
+    width: 25px;
+    height: 25px;
+    margin: auto;
+    display: block;
+    margin-top: 20px;
+  }
+  
+  .robertiniste {
+    font-family: 'Fascinate Inline', cursive;
+    text-align: center;
+    line-height: 18px;
+    margin-top: 20px;
+  }
+  
+  .robertiniste h2 {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+  
+  .robertiniste h1 {
+    font-size: 28px;
+  }
+  
+  .newsletter {
+    display: flex;
+    justify-content: space-around;
+    font-size: 8px;
+    margin-top: 20px;
+  }
+  
+  .newsletter span {
+    margin-left: 5px;
+    margin-right: 5%;
+    font-size: 14px;
+  }
+
+  .navbar ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    text-align: center;
+    padding: 10px;
+    height:100vh;
+    width: 100%;
+    position: fixed;
+    top: 83px;
+    background-color: #FFF;
+  }
+  
+  .navbar ul li {
+    margin: 05x;
+    font-weight: bold;
+  }
+
+  /* Sections and Articles */
+
+  .flex-box {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .flex-box img {
+    max-height: 1000px;
+    margin-right: 10px;
+  }
+  /*
+  .secondary-right .flex-box img {
+    max-height: 50px;
+  }
+  */
+  .section-title {
+    font-family: 'Ms Madi', cursive;
+    text-align: center;
+    margin: 10px 5%;
+    padding: 5px;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+  }
+
+  .first-section {
+    margin-top: 70px;
+  }
+
+  .articles {
+    /*grid-column: 2/5;
+    grid-row: 2/3;*/
+    margin: 2.5px 5%;
+    display: flex;
+    flex-direction: column;
+   /* border: 1px solid black;*/
+  }
+
+  .box-text {
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .main-recent {
+    border: none;
+  }
+
+  .principal {
+    padding: 0px;
+    padding: 5px;
+  }
+
+  .article-title {
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    margin-bottom: 5px;
+    margin-top: 2px;
+  }
+
+  .flex-box .article-title {
+    font-size: 1.25rem;
+    margin-bottom: 5px;
+  }
+
+  .article-title:hover {
+    text-decoration: underline;
+  }
+
+  .article-preview {
+    font-weight: 300;
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+  }
+
+  .flex-box .article-preview {
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+  }
+
+  .article-author {
+    font-weight: 600;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+  }
+
+  .flex-box .article-author{
+    font-size: 0.95rem;
+  }
+
+  .secondary-right {
+    padding: 5px;
+  }
+
+  .secondary-right .article-title {
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+
+  .secondary-right .article-preview {
+    font-size: 0.9em;
+    margin-bottom: 5px;
+  }
+
+  .secondary-right .article-author{
+    font-size: 0.9rem;
+  }
+
+  .secondary-right {
+    padding: 5px;
+  }
+
+  .secondary-right .article-title {
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+
+  .secondary-right .article-preview {
+    font-size: 0.9em;
+    margin-bottom: 5px;
+  }
+
+  .secondary-right .article-author{
+    font-size: 0.9rem;
+  }
+
+
+  /* Culture Section*/
+
+  .culture {
+    margin: 2.5px 5%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Fiction Section*/
+
+  .fiction {
+    margin: 2.5px 5%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Articles */
+
+  .article {
+    margin: 20px 1%;
+    margin-top: 100px;
+  }
+
+  .article .image-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 40px;
+    margin-top: 20px;
+  }
+
+  .article img {
+    width: 100%;
+    align-self: center;
+    /*max-width: 600px;*/
+  }
+
+  .article .image-container span {
+    margin-top: 20px;
+    margin-left: 10%;
+    margin-right: 0px;
+    font-size: 18px;
+    color: #FCBA03;
+  }
+
+  .article .image-container .credits {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .article .image-container .credits .credits-text {
+    font-size: 14px;
+    margin-left: 10px;
+    color: #000;
+  }
+
+  .article .title {
+    width: 80%;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: left;
+  }
+
+  .article .text-title {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0px;
+    margin-top: 60px;
+  }
+
+  .article .text {
+    font-size: 14px;
+    margin: 0px 0;
+    margin-left: 0%;
+    margin-bottom: 60px;
+    font-weight: 200;
+  }
+
+  .article p {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    line-height: 30px;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
+  .article .metadata {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 40px;
+  }
+
+  .article .metadata p {
+    margin: 0px;
+    margin-left: 10%;
+    font-size: 12px;
+    text-align: left;
+  }
+
+  .article .metadata .author {
+    font-weight: 800;
+  }
+
+  .article .metadata .date {
+    font-weight: 200;
+    margin-left: 5px;
+  }
+
+  .article .separation {
+    margin: 0px 0;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 50px;
+    margin-top: -30px;
+  }
+
+  .article .text-title {
+    color: #FCBA03;
+  }
+
+  .article .author-box {
+    margin-top: 40px;
+    margin-left: auto;
+    width: 100%;
+  }
+
+  .article .author-box span {
+    font-weight: bold;
+  }
+
+  .article .author-box p {
+    background-color: rgba(0, 0, 0, 0.025);
+    border-radius: 1.5%;
+    font-size: 12px;
+    padding: 20px;
+    margin-bottom: 50px;
+    box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .article .share-icons {
+    display: flex;
+    margin-top: -30px;
+    margin-left: 10%;
+    margin-bottom: 40px;
+  }
+
+  .more {
+    margin: 2.5px 5%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .more-title {
+    font-family: 'Inter', sans-serif;
+    text-align: left;
+    margin: 10px 0;
+    margin-left: 6%;
+    margin-right: 6%;
+    margin-bottom: 20px;
+    padding: 5px;
+    border-bottom: 2px solid #000;
+  }
+
 }
