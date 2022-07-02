@@ -156,6 +156,7 @@ img {
   padding: 5px;
   border-top: 1px solid rgba(0, 0, 0, 0.2);
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  color: #FCBA03 !important;
 }
 
 .articles {
@@ -422,7 +423,8 @@ img {
 }
 
 .footer-links img {
-  height: 20px;
+  max-height: 20px;
+  max-width: 20px;
 }
 
 .social-networks  {
