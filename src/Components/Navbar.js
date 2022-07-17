@@ -30,14 +30,13 @@ export default function Navbar() {
             </div>
             <div ref={ref} className='navbar active'>
                 <ul>
-                    <a href='#'><li>Actualités</li></a>
+                    <a href='#'><li>News</li></a>
                     <a href='#'><li>Culture</li></a>
-                    <a href='#'><li>Sport</li></a>
-                    <a href='#'><li>Technologie</li></a>
+                    <a href='#'><li>Tech</li></a>
                     <a href='#'><li>Science</li></a>
                     <a href='#'><li>Opinion</li></a>
-                    <a href='#'><li>Jeux Et Puzzles</li></a>
-                    <a href='#'><li>Fictions et Poèmes</li></a>
+                    <a href='#'><li>About</li></a>
+                    <a href='#'><li>Contact</li></a>
                 </ul>
             </div>
         </nav>

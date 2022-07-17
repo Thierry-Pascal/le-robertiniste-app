@@ -15,14 +15,13 @@ export default function Footer() {
             <Separation />
             <div className="footer-links">
                 <ul className="active">
-                    <a href='#'><li>Actualités</li></a>
+                    <a href='#'><li>News</li></a>
                     <a href='#'><li>Culture</li></a>
-                    <a href='#'><li>Sport</li></a>
-                    <a href='#'><li>Technologie</li></a>
+                    <a href='#'><li>Tech</li></a>
                     <a href='#'><li>Science</li></a>
                     <a href='#'><li>Opinion</li></a>
-                    <a href='#'><li>Jeux Et Puzzles</li></a>
-                    <a href='#'><li>Fictions et Poèmes</li></a>
+                    <a href='#'><li>About</li></a>
+                    <a href='#'><li>Contact</li></a>
                 </ul>
                 <p>Contact: <span><a href="#">dainarobersonjean@gmail.com</a></span></p>
                 <ul className="social-networks">

@@ -28,6 +28,7 @@ function App() {
             <p>Retrieving the  best articles for you....</p>
           </div>
         </div>
+
         :
 
         <div>
@@ -35,7 +36,14 @@ function App() {
           <Router>
             <Routes>
               <Route path="/" element={<Home />}/>
+              <Route path='/about' />
+              <Route path='/contact' />
               <Route path='/articles/:pathname' element={<Article />}/>
+              <Route path='/categories/news'/>
+              <Route path='/categories/culture'/>
+              <Route path='/categories/tech'/>
+              <Route path='/categories/science'/>
+              <Route path='/categories/opinion'/>
             </Routes>
           </Router>
           <Footer />
